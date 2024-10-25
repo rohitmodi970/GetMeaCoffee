@@ -1,13 +1,15 @@
 import NextAuth from 'next-auth'
 // import AppleProvider from 'next-auth/providers/apple'
 // import FacebookProvider from 'next-auth/providers/facebook'
-// import GoogleProvider from 'next-auth/providers/google'
+import GoogleProvider from 'next-auth/providers/google'
 // import EmailProvider from 'next-auth/providers/email'
 import GitHubProvider from "next-auth/providers/github";
 import mongoose from 'mongoose';
 import User from '@/models/User';
 import Payments from '@/models/Payments';
 import connectDB from '@/db/connectDb';
+
+
 export const authoptions = NextAuth({
   providers: [
     // OAuth authentication providers...
@@ -19,10 +21,10 @@ export const authoptions = NextAuth({
     //   clientId: process.env.FACEBOOK_ID,
     //   clientSecret: process.env.FACEBOOK_SECRET
     // }),
-    // GoogleProvider({
-    //   clientId: process.env.GOOGLE_ID,
-    //   clientSecret: process.env.GOOGLE_SECRET
-    // }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET
+    }),
     // // Passwordless / email sign in
     // EmailProvider({
     //   server: process.env.MAIL_SERVER,
