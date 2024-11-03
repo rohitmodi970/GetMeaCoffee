@@ -8,11 +8,11 @@ const Username = async ({ params }) => {
   const checkUser=async()=>{
     await connectDB()
     let u = await User.findOne({username: params.username})
-    if (!u) {
-      return notFound()
-    }
+    // if (!u) {
+    //   return notFound()
+    // }
   }
-  
+  console.log(params.username)
   await checkUser()
   return (
     <>

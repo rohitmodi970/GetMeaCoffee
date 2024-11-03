@@ -32,12 +32,40 @@ export const initiate = async (amount, to_username, paymentform) => {
     return x
 }
 //this will return the user too display the payment received message in PaymentPage 
+// export const fetchUser = async (username) => {
+//     await connectDB()
+//     let u = await User.findOne({ username: username })
+//     let user = u.toObject({ flattenObjectIds: true })
+//     return user
+// }
+
 export const fetchUser = async (username) => {
-    await connectDB()
-    let u = await User.findOne({ username: username })
-    let user = u.toObject({ flattenObjectIds: true })
-    return user
-}
+  await connectDB(); // Ensure the DB connection is established
+  let u = await User.findOne({ username: username });
+  
+  // Handle the case where the user is not found
+  if (!u) {
+    throw new Error('User not found');
+  }
+  
+  let user = u.toObject({ flattenObjectIds: true });
+  return user;
+};
+
+export const searchUser = async (query) => {
+    await connectDB();
+    // Use regex for partial matching (case-insensitive)
+    const regex = new RegExp(query, 'i');
+    const users = await User.find({ 
+        $or: [
+            { name: { $regex: regex } },
+            { username: { $regex: regex } },
+            { email: { $regex: regex } }
+        ]
+    }).lean();
+    
+    return users;
+};
 //return the received payments in sorted 
 export const fetchPayment = async (username) => {
     await connectDB()

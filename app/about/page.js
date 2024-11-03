@@ -11,14 +11,14 @@ const page = () => {
                 <h2 className='text-2xl font-semibold mb-4'>How It works</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <div className="flex items-center mb-6">
-                        <Image className='w-20 h-20 rounded-full mr-4' src="/coin.gif" alt="Fans want to colaborate" />
+                        <Image className='w-20 h-20 rounded-full mr-4' src="/coin.gif" alt="Fans want to colaborate" width={80} height={80} />
                         <div className="">
                             <h3 className="text-2xl font-semibold mb-4">Fans want to colaborate</h3>
                             <p>Your Fans are enthusiastic about collaborating with you on your projects.</p>
                         </div>
                     </div>
                     <div className="flex items-center mb-6">
-                        <Image className='w-20 h-20 rounded-full mr-4' src="/demand.gif" alt="Fans want to colaborate" />
+                        <Image className='w-20 h-20 rounded-full mr-4' src="/demand.gif" alt="Fans want to colaborate" width={80} height={80} />
                         <div className="">
                             <h3 className="text-2xl font-semibold mb-4">Support through coffee</h3>
                             <p>Receive support from your fans in the form of Coffee purchases, directly contributing to your project funding.</p>

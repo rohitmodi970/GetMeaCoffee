@@ -2,7 +2,7 @@
 import React from 'react'
 import Script from 'next/script'
 import { useState, useEffect } from 'react'
-import { useSession } from 'next-auth/react'
+import { useSession, signIn, signOut } from "next-auth/react";
 import { fetchUser, fetchPayment, initiate } from '@/actions/useractions'
 import { SearchParamsContext } from 'next/dist/shared/lib/hooks-client-context.shared-runtime'
 import { useSearchParams } from 'next/navigation'
@@ -15,6 +15,7 @@ import { notFound } from "next/navigation"
 const PaymentPage = ({ username }) => {
 
     // const { data: session } = useSession()
+    const { data: session } = useSession();
     const [paymentform, setPaymentform] = useState({name: "",message:"",amount:""})
     const [currentuser, setCurrentuser] = useState({})
     const [pacares, setPacares] = useState([])//payment word comes from latin word paycare
@@ -55,7 +56,7 @@ const PaymentPage = ({ username }) => {
         setCurrentuser(u)
         let dbpayments = await fetchPayment(username)
         setPacares(dbpayments)
-        console.log(dbpayments)
+        // console.log(dbpayments)
     }
     const pay = async (amount) => {
         //Get the order ID
@@ -115,6 +116,7 @@ const PaymentPage = ({ username }) => {
                 <div className="text-slate-400 font-semibold">Lets help {username} get a coffee!</div>
                 <div className="text-slate-400 font-semibold">{pacares.length} Payments .  ₹{pacares.reduce((a,b)=> a+b.amount , 0)} raised</div>
                 <div className="payments flex gap-3 w-[80%] text-white mt-11 flex-col md:flex-row">
+                {session ? (
                     <div className="supporters md:w-1/2 w-full bg-slate-900 rounded-lg p-10">
                         {/* Show list of supporters as a leaderboard */}
                         <h2 className='text-2xl font-bold  my-5'>Top 10 Supporters</h2>
@@ -132,6 +134,7 @@ const PaymentPage = ({ username }) => {
 
                         </ul>
                     </div>
+                ): session}
                     <div className="makePayment md:w-1/2 w-full bg-slate-900 rounded-lg p-10">
                         <h2 className='text-2xl font-bold  my-5'>Make a Payment</h2>
                         <div className="flex gap-2 flex-col">
