@@ -28,20 +28,3 @@ export async function generateMetadata({ params }) {
     title: `Support ${params.username} - Get Me a Coffee`,
   }
 }
-// pages/[username].js
-
-export async function generateStaticParams() {
-  // Replace this with the usernames or fetch them from your database
-  const users = ['user1', 'user2', 'user3']; // Sample usernames
-  
-  return users.map(username => ({
-    username,
-  }));
-}
-
-// Your main component
-export default function UserProfile({ params }) {
-  const { username } = params;
-  
-  return <div>Profile of {username}</div>;
-}
