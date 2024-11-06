@@ -22,7 +22,7 @@ const Login = () => {
             <div className="flex flex-col gap-2 min-h-screen items-center justify-center p-10">
 
 
-                <button
+                <button onClick={()=>{signIn("google")}}
                     className=" bg-slate-50 w-80 rounded-lg shadow-md max-w-xs px-6 py-4 font-bold text-black items-center flex gap-5  hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                     <span className='w-6'><img src="/google-icon.svg" alt="" /></span>
                     <span>Continue with Google</span>
