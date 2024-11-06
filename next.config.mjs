@@ -6,6 +6,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  env: {
+    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET, // This will expose NEXTAUTH_SECRET to the client
+  },
 };
 
 export default nextConfig;
