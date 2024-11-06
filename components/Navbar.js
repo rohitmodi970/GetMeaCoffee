@@ -85,7 +85,7 @@ const Navbar = () => {
                     <span className="text-2xl md:text-base my-3 md:my-0">GetMeaCoffee!</span>
                 </Link>
 
-                <Link href="http://localhost:3000/">
+                <Link href="https://get-mea-coffee-jzpq.vercel.app/">
                     <button className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
                         Home
                     </button>
