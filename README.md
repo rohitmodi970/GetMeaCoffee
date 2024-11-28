@@ -2,6 +2,12 @@
 
 **GetMeACoffee** is a platform inspired by Patreon, designed to empower creators to connect with their audience and receive support. Creators can set up their profiles, share content, and receive payments seamlessly. This platform features a robust payment integration, making it easy for supporters to contribute and creators to monetize their work.
 
+## 🖼️ Preview
+
+![GetMeACoffee Preview](public/preview.png)
+
+[Visit the live application](https://get-mea-coffee-jzpq.vercel.app/)
+
 ## 🛠️ Features
 
 - 🎨 **Creator Profiles**: Set up and customize your profile to showcase your work.
